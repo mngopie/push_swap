@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/11 13:34:50 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:44:00 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_node
 {
-	int				value;
+	int				data;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
