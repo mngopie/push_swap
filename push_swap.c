@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:30:58 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/11 12:30:20 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/11 12:36:05 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	ft_atoi(const char *nptr)
 int main(int argc, char **argv)
 {
 	int i;
+	int num;
 
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
-		printf("argv[%d] = %s\n", i, argv[i]);
+		num = ft_atoi(argv[i]);
+		printf("Num: [%d]\n", num);
 		i++;
 	}
 	return (0);
