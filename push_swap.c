@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:30:58 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/10 16:27:29 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:30:20 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,13 @@ int	ft_atoi(const char *nptr)
 
 int main(int argc, char **argv)
 {
-	
+	int i;
+
+	i = 0;
+	while (i < argc)
+	{
+		printf("argv[%d] = %s\n", i, argv[i]);
+		i++;
+	}
+	return (0);
 }
