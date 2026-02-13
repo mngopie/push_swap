@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:30:58 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/11 16:43:54 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/13 14:29:53 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,36 +54,111 @@ t_node	*create_node(int value)
 	return (new_node);
 }
 
-int	main(int argc, char **argv)
+int	integer(char *str)
 {
-	t_node *stack_a;
-	t_node *stack_b;
-	t_node *node;
 	int i;
-	int num;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	i = 1;
-	while (i < argc)
+	i = 0;
+	if (str == NULL)
+		return (0);
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i])
 	{
-		num = ft_atoi(argv[i]);
-		node = create_node(num);
-
-		if (stack_a != NULL)
-		{
-			node->next = stack_a;
-			stack_a->prev = node;
-		}
-
-		stack_a = node;
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 		i++;
 	}
-	node = stack_a;
-	while (node)
+	return (1);
+}
+
+int	check_duplicates(t_node *stack, int value)
+{
+	t_node *current;
+
+	current = stack;
+	while (current)
 	{
-		printf("%d\n", node->data);
-		node = node->next;
+		if (current->data == value)
+			return (1);
+		current = current->next;
 	}
 	return (0);
 }
+
+
+int	validate_input(int argc, char **argv)
+{
+	int i;
+
+	i = 1;
+	// if indi integer error - this helper function checks the STRING
+	// convert string to int
+	// if indi within range error INT_MIN & INT_MAX
+	// so if integer and within range istore ko ang string in another memory?
+	// in that memory i need to check for duplicates
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	int i;
+
+	if (argc < 2)
+	{
+		printf("no arguments indicated\n"); 
+		return (1);
+	}
+	i = 1;
+	while (i < argc)
+	{
+		if (integer(argv[i]))
+			printf("\"%s\" is a valid integer\n", argv[i]);
+		else
+			printf("\"%s\" is NOT a valid integer\n", argv[i]);
+		i++;
+	}
+	return (0);
+}
+
+// int	main(int argc, char **argv)
+// {
+// 	t_node *stack_a;
+// 	t_node *stack_b;
+// 	t_node *node;
+// 	int i;
+// 	int num;
+
+// 	stack_a = NULL;
+// 	stack_b = NULL;
+// 	if (!validate_input(argc, argv))
+// 	{
+// 		printf("Error\n");
+// 		return (1);
+// 	}
+
+// 	i = 1;
+// 	while (i < argc) // but it could be na wala input, so we should check if argc > 1
+// 	{
+// 		num = ft_atoi(argv[i]);
+// 		node = create_node(num);
+
+// 		if (stack_a != NULL)
+// 		{
+// 			node->next = stack_a;
+// 			stack_a->prev = node;
+// 		}
+
+// 		stack_a = node;
+// 		i++;
+// 	}
+// 	node = stack_a;
+// 	while (node)
+// 	{
+// 		printf("%d\n", node->data);
+// 		node = node->next;
+// 	}
+// 	return (0);
+// }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/11 16:44:00 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/13 14:23:49 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_node
 #include <unistd.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
 int	main(int argc, char **argv);
 int	ft_atoi(const char *nptr);
