@@ -6,7 +6,7 @@
 /*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:30:58 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/13 14:29:53 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/17 10:51:24 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,6 @@ int	integer(char *str)
 
 int	check_duplicates(t_node *stack, int value)
 {
-	t_node *current;
-
-	current = stack;
-	while (current)
-	{
-		if (current->data == value)
-			return (1);
-		current = current->next;
-	}
-	return (0);
 }
 
 
@@ -93,10 +83,9 @@ int	validate_input(int argc, char **argv)
 {
 	int i;
 
-	i = 1;
 	// if indi integer error - this helper function checks the STRING
 	// convert string to int
-	// if indi within range error INT_MIN & INT_MAX
+	// if indi within range error INT_MIN & INT_MAX?
 	// so if integer and within range istore ko ang string in another memory?
 	// in that memory i need to check for duplicates
 	return (0);
@@ -135,7 +124,7 @@ int	main(int argc, char **argv)
 // 	stack_b = NULL;
 // 	if (!validate_input(argc, argv))
 // 	{
-// 		printf("Error\n");
+// 		write(2, "Error\n", 6);
 // 		return (1);
 // 	}
 
