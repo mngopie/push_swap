@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   handle_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 11:30:58 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/17 10:51:24 by pjakosal         ###   ########.fr       */
+/*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
+/*   Updated: 2026/02/18 13:40:44 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// atoi or atol; long to handle int_min and int_max range
+// linked list: create & add new nodes
+// function to take the argv, have the checks: integers? duplicates? range? push into nodes
 
 int	ft_atoi(const char *nptr)
 {
@@ -54,6 +58,23 @@ t_node	*create_node(int value)
 	return (new_node);
 }
 
+void	ft_lstadd_back(t_node **lst, t_node *new)
+{
+	t_node	*temp;
+
+	if (new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	temp = *lst;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+}
+
 int	integer(char *str)
 {
 	int i;
@@ -74,9 +95,30 @@ int	integer(char *str)
 	return (1);
 }
 
-int	check_duplicates(t_node *stack, int value)
+int	check_duplicates(int *numbers, int vcount)
 {
+	int i;
+    int j;
+
+    i = 0;
+    while (i < vcount - 1)
+    {
+        j = i + 1;
+        while (j < vcount)
+        {
+            if (numbers[i] == numbers[j])
+            {
+                write (2, "Error: Duplicate\n", 17);
+                return (1);
+            }
+            j++;
+        }
+        i++;
+    }
+    return (0);
 }
+
+handle_args(){}
 
 
 int	validate_input(int argc, char **argv)
@@ -90,64 +132,3 @@ int	validate_input(int argc, char **argv)
 	// in that memory i need to check for duplicates
 	return (0);
 }
-
-int	main(int argc, char **argv)
-{
-	int i;
-
-	if (argc < 2)
-	{
-		printf("no arguments indicated\n"); 
-		return (1);
-	}
-	i = 1;
-	while (i < argc)
-	{
-		if (integer(argv[i]))
-			printf("\"%s\" is a valid integer\n", argv[i]);
-		else
-			printf("\"%s\" is NOT a valid integer\n", argv[i]);
-		i++;
-	}
-	return (0);
-}
-
-// int	main(int argc, char **argv)
-// {
-// 	t_node *stack_a;
-// 	t_node *stack_b;
-// 	t_node *node;
-// 	int i;
-// 	int num;
-
-// 	stack_a = NULL;
-// 	stack_b = NULL;
-// 	if (!validate_input(argc, argv))
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return (1);
-// 	}
-
-// 	i = 1;
-// 	while (i < argc) // but it could be na wala input, so we should check if argc > 1
-// 	{
-// 		num = ft_atoi(argv[i]);
-// 		node = create_node(num);
-
-// 		if (stack_a != NULL)
-// 		{
-// 			node->next = stack_a;
-// 			stack_a->prev = node;
-// 		}
-
-// 		stack_a = node;
-// 		i++;
-// 	}
-// 	node = stack_a;
-// 	while (node)
-// 	{
-// 		printf("%d\n", node->data);
-// 		node = node->next;
-// 	}
-// 	return (0);
-// }
