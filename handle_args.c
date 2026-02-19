@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/18 13:40:44 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/19 13:15:25 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,23 @@ int	check_duplicates(int *numbers, int vcount)
     return (0);
 }
 
-handle_args(){}
-
-
-int	validate_input(int argc, char **argv)
+int	handle_args(t_node stack_a, char **args, int count)
 {
+	int *converted_tofre;
 	int i;
 
+	converted_tofre = malloc((count) * sizeof(int));
+	if (converted_tofre == NULL)
+		return (1);
+	i = 0;
+	while (i < count)
+	{
+		if (!integer(args[i]))
+			converted_tofre[i - 1] = ft_atoi(args[i]);
+	}
 	// if indi integer error - this helper function checks the STRING
 	// convert string to int
 	// if indi within range error INT_MIN & INT_MAX?
 	// so if integer and within range istore ko ang string in another memory?
 	// in that memory i need to check for duplicates
-	return (0);
 }
