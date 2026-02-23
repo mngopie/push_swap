@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/19 13:15:25 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/23 09:51:35 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 // linked list: create & add new nodes
 // function to take the argv, have the checks: integers? duplicates? range? push into nodes
 
-int	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
-	int num;
-	int sign;
+	long num;
+	long sign;
 	int i;
 
 	num = 0;
@@ -45,34 +45,33 @@ int	ft_atoi(const char *nptr)
 	return (sign * num);
 }
 
-t_node	*create_node(int value)
+void	values_to_stack(t_node **stack_a, long *values, int count)
 {
-	t_node *new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (new_node == NULL)
-		return (NULL);
-	new_node->data = value;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	return (new_node);
-}
-
-void	ft_lstadd_back(t_node **lst, t_node *new)
-{
+	int		i;
+	t_node	*new_node;
 	t_node	*temp;
 
-	if (new == NULL)
-		return ;
-	if (*lst == NULL)
+	i = 0;
+	while (i < count)
 	{
-		*lst = new;
-		return ;
+		new_node = malloc(sizeof(t_node));
+		if (new_node == NULL)
+			return;
+		new_node->data = (int)values[i];
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		if (*stack_a == NULL)
+			*stack_a = new_node;
+		else
+		{
+			temp = *stack_a;
+			while (temp->next)
+				temp = temp->next;
+			temp->next = new_node;
+			new_node->prev = temp;
+		}
+		i++;
 	}
-	temp = *lst;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = new;
 }
 
 int	integer(char *str)
@@ -95,7 +94,7 @@ int	integer(char *str)
 	return (1);
 }
 
-int	check_duplicates(int *numbers, int vcount)
+int	dups(long *numbers, int vcount)
 {
 	int i;
     int j;
@@ -118,23 +117,29 @@ int	check_duplicates(int *numbers, int vcount)
     return (0);
 }
 
-int	handle_args(t_node stack_a, char **args, int count)
+int	handle_args(t_node **stack_a, char **args, int count)
 {
-	int *converted_tofre;
+	long *values;
+	long tmp;
 	int i;
 
-	converted_tofre = malloc((count) * sizeof(int));
-	if (converted_tofre == NULL)
+	values = malloc(count * sizeof(long));
+	if (values == NULL)
 		return (1);
 	i = 0;
 	while (i < count)
 	{
 		if (!integer(args[i]))
-			converted_tofre[i - 1] = ft_atoi(args[i]);
+			return (write (2, "Error\n", 6), free (values), 1);
+		tmp = ft_atol(args[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			return (write (2, "Error\n", 6), free (values), 1);
+		values[i] = tmp;
+		i++;
 	}
-	// if indi integer error - this helper function checks the STRING
-	// convert string to int
-	// if indi within range error INT_MIN & INT_MAX?
-	// so if integer and within range istore ko ang string in another memory?
-	// in that memory i need to check for duplicates
+	if (dups(values, count))
+		return (free (values), 1);
+	values_to_stack(stack_a, values, count);
+	free (values);
+	return (0);
 }

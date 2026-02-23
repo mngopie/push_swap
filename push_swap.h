@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/18 11:54:09 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/23 09:51:38 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ typedef struct s_node
 #include <string.h>
 #include <limits.h>
 
-int	main(int argc, char **argv);
-int	ft_atoi(const char *nptr);
+int		main(int argc, char **argv);
+int		handle_args(t_node **stack_a, char **args, int count);
+long	ft_atol(const char *nptr);
 char	**ft_split(char const *s, char c);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/19 13:15:35 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/23 09:51:40 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ char	**split_or_not(int argc, char **argv, int *count)
 	return (argv + 1);
 }
 
+void	print_stack(t_node *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->data);
+		stack = stack->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
@@ -42,11 +51,15 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
-		return (1); // argc[1] is ./a.out - return (1) is error
+		return (write(2, "Error\n", 6), 1); // argc[1] is ./a.out - return (1) is error
 	args = split_or_not(argc, argv, &count);
 	if (!args)
-		return (1);
-	handle_args(&stack_a, args, count);
-	if (argc == 2) // free split_or_not(args)
+		return (write(2, "Error\n", 6), 1);
+	if (handle_args(&stack_a, args, count))
+		return (write(2, "Error\n", 6), 1);
+	printf ("stack A: \n");
+	print_stack(stack_a);
+	// if (argc == 2) // free split_or_not(args)
+	// 	free (split_or_not);
     return (0);
 }
