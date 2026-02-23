@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/23 09:51:35 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/23 11:40:41 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	values_to_stack(t_node **stack_a, long *values, int count)
 {
 	int		i;
 	t_node	*new_node;
-	t_node	*temp;
+	t_node	*last_node;
 
 	i = 0;
 	while (i < count)
@@ -64,11 +64,11 @@ void	values_to_stack(t_node **stack_a, long *values, int count)
 			*stack_a = new_node;
 		else
 		{
-			temp = *stack_a;
-			while (temp->next)
-				temp = temp->next;
-			temp->next = new_node;
-			new_node->prev = temp;
+			last_node = *stack_a;
+			while (last_node->next)
+				last_node = last_node->next;
+			last_node->next = new_node;
+			new_node->prev = last_node;
 		}
 		i++;
 	}
@@ -97,24 +97,21 @@ int	integer(char *str)
 int	dups(long *numbers, int vcount)
 {
 	int i;
-    int j;
+	int j;
 
-    i = 0;
-    while (i < vcount - 1)
-    {
-        j = i + 1;
-        while (j < vcount)
-        {
-            if (numbers[i] == numbers[j])
-            {
-                write (2, "Error: Duplicate\n", 17);
-                return (1);
-            }
-            j++;
-        }
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (i < vcount - 1)
+	{
+		j = i + 1;
+		while (j < vcount)
+		{
+			if (numbers[i] == numbers[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	handle_args(t_node **stack_a, char **args, int count)
