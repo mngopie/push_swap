@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/24 14:43:40 by pixel            ###   ########.fr       */
+/*   Updated: 2026/02/25 17:51:38 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ char	**split_or_not(int argc, char **argv, int *count)
 	return (argv + 1);
 }
 
-// void	print_stack(t_node *stack)
-// {
-// 	while (stack)
-// 	{
-// 		printf("%d\n", stack->data);
-// 		stack = stack->next;
-// 	}
-// }
+void	print_stack(t_node *stack)
+{
+	while (stack)
+	{
+		printf("%d\n", stack->data);
+		stack = stack->next;
+	}
+}
 
 int	stack_sorted(t_node **stack_a)
 {
@@ -48,7 +48,7 @@ int	stack_sorted(t_node **stack_a)
 	current = *stack_a;
 	while (stack_a)
 	{
-		if (current->data > current->next->data)
+		if (current->next != NULL)
 			return (0); // function to sort stack_a
 		else
 			current = current->next;
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 	if (!args)
 		return (write(2, "Error\n", 6), 1);
 	handle_args(&stack_a, args, count);
-	if (!stack_sorted(stack_a))
+	// if (!stack_sorted(&stack_a)) // do i really need this shit?
 	// printf ("stack A: \n");
 	// print_stack(stack_a);
 	// if (argc == 2) // free split_or_not(args)

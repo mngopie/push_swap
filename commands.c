@@ -6,9 +6,9 @@
 /*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/23 15:48:37 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/25 15:02:47 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "push_swap.h"
 

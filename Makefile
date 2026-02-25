@@ -4,22 +4,28 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 HEADER	=	push_swap.h
 
-SRC		=	 \
+SRC		=	main.c commands.c handle_args.c \
 
-OBJ		=	$(SRC:.c=.o)
+OBJS	=	$(SRC:.c=.o)
+
+LIBFT	=	libft/libft.a
 
 all:	$(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	make -C libft
+	$(CC) $(OBJS) -Llibft -lft -o $(NAME)
+# 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c %$(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	make -C libft clean
 	rm -f $(OBJ)
 
 fclean: clean
+	make -C libft clean
 	rm -f $(NAME)
 
 re: fclean all
