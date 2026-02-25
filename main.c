@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/23 16:05:02 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/24 14:43:40 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,25 @@ char	**split_or_not(int argc, char **argv, int *count)
 // 	}
 // }
 
-stack_sorted()
+int	stack_sorted(t_node **stack_a)
 {
+	t_node *current; // a pointer that points to the first node
+	
+	current = *stack_a;
+	while (stack_a)
+	{
+		if (current->data > current->next->data)
+			return (0); // function to sort stack_a
+		else
+			current = current->next;
+	}
+	return (1);
+	// do nothing if alr sorted.. duh.. this function is a checker
+	// compare each node's data with the next node's data, if current node's data is less than the next node's data it's FALSE
+	// if (not sorted)
+		// the use of commands/operations
+	return (1); // stack is sorted
+	return (0); // not sorted; need to use commands/operations
 	// check if stack_a is sorted in ascending order
 }
 
