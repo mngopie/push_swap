@@ -6,7 +6,7 @@
 /*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/23 11:40:41 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/25 18:04:54 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	values_to_stack(t_node **stack_a, long *values, int count)
 		new_node->data = (int)values[i];
 		new_node->next = NULL;
 		new_node->prev = NULL;
-		if (*stack_a == NULL)
+		if (*stack_a == NULL) // initialized on main()
 			*stack_a = new_node;
 		else
 		{
@@ -70,7 +70,7 @@ void	values_to_stack(t_node **stack_a, long *values, int count)
 			last_node->next = new_node;
 			new_node->prev = last_node;
 		}
-		i++;
+		i++; // should i increase size here to count each nodes?
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/25 17:51:38 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/25 19:37:52 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,21 @@ void	print_stack(t_node *stack)
 
 int	stack_sorted(t_node **stack_a)
 {
-	t_node *current; // a pointer that points to the first node
+	t_node *current;
 	
 	current = *stack_a;
-	while (stack_a)
+	while (current->next != NULL)
 	{
-		if (current->next != NULL)
-			return (0); // function to sort stack_a
-		else
+		if (current->data < current->next->data)
+			// now compare if the current->next->data < current->next->next->data
+			// amo na ang problem if indi ko kabalo how many arguments are there
+			// need ko ang size and to know when to go in this function
 			current = current->next;
+		else
+			return(1); // it's not in ascending order
+			// go to manual sorting logic
 	}
-	return (1);
-	// do nothing if alr sorted.. duh.. this function is a checker
-	// compare each node's data with the next node's data, if current node's data is less than the next node's data it's FALSE
-	// if (not sorted)
-		// the use of commands/operations
-	return (1); // stack is sorted
-	return (0); // not sorted; need to use commands/operations
-	// check if stack_a is sorted in ascending order
+	return(0); // means sorted
 }
 
 int	main(int argc, char **argv)
@@ -78,9 +75,8 @@ int	main(int argc, char **argv)
 	if (!args)
 		return (write(2, "Error\n", 6), 1);
 	handle_args(&stack_a, args, count);
-	// if (!stack_sorted(&stack_a)) // do i really need this shit?
-	// printf ("stack A: \n");
-	// print_stack(stack_a);
+	if (!stack_sorted(&stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
+		// it would go through sorting logic - algorithm
 	// if (argc == 2) // free split_or_not(args)
 	// 	free (split_or_not);
 	return (0);
