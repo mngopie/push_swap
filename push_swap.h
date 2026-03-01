@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/02/25 14:48:38 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/01 09:05:11 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include "../libft/libft.h"
 
 typedef struct s_node
 {
@@ -27,9 +29,19 @@ typedef struct s_node
 #include <string.h>
 #include <limits.h>
 
-int		main(int argc, char **argv);
-int		handle_args(t_node **stack_a, char **args, int count);
+// Parsing
+int	handle_args(t_node **stack_a, char **args, int count);
+void	valued_to_stack(t_node **stack_a, long *vlaues, int count);
 long	ft_atol(const char *nptr);
-char	**ft_split(char const *s, char c);
+int	integer(char *str);
+int	dups(long *numbers, int vcount);
+char	*split_or_not(int argc, char **argv, int count);
+
+// Commands
+void	sa_swap(t_node **stack_a);
+
+// Checks
+void	print_stack(t_node *stack);
+int	is_sorted(t_node **stack_a);
 
 # endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_args.c                                      :+:      :+:    :+:   */
+/*   parsers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/25 18:04:54 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/02/26 18:34:36 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	values_to_stack(t_node **stack_a, long *values, int count)
 			*stack_a = new_node;
 		else
 		{
-			last_node = *stack_a;
+			last_node = *stack_a; // make last_node a pointer same to *stack_a which is also a pointer at the beginning of the node
 			while (last_node->next)
-				last_node = last_node->next;
+				last_node = last_node->next; // change the pointer position, if last_node->NULL it will go out of the loop
 			last_node->next = new_node;
 			new_node->prev = last_node;
 		}
@@ -80,18 +80,18 @@ int	integer(char *str)
 
 	i = 0;
 	if (str == NULL)
-		return (0);
+		return (1);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		return (0);
+		return (1);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	dups(long *numbers, int vcount)
