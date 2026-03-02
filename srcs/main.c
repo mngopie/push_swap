@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/01 18:50:10 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/02 10:40:00 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
 	{
 		if (count == 2)
-			sa_swap(&stack_a); // swap the two nodes
+			sa(&stack_a); // swap the two nodes
 		else if (count == 3)
 			sort_three(&stack_a);
 		else if (count <= 5)
