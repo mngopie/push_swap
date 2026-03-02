@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:22:16 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/02 13:27:27 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/02 13:29:37 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,8 @@ void	sb(t_node **stack_b)
 
 void	ss(t_node **stack_a, t_node **stack_b)
 {
-
+    swap(stack_a);
+    swap(stack_b);
+    write(1, "ss\n", 3);
+	return ;
 }
