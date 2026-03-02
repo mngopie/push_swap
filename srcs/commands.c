@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/01 19:10:30 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/02 10:05:59 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	sort_three(t_node **stack_a)
 	current = *stack_a;
 	while (current->next != NULL)
 	{
-		if (curretn->next >)
+		if (current->next >)
 	}
 }
