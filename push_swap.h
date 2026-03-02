@@ -6,14 +6,14 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/01 09:05:11 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/01 17:46:56 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "../Libft/libft.h"
 
 typedef struct s_node
 {
@@ -35,7 +35,7 @@ void	valued_to_stack(t_node **stack_a, long *vlaues, int count);
 long	ft_atol(const char *nptr);
 int	integer(char *str);
 int	dups(long *numbers, int vcount);
-char	*split_or_not(int argc, char **argv, int count);
+char	**split_or_not(int argc, char **argv, int *count);
 
 // Commands
 void	sa_swap(t_node **stack_a);

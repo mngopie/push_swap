@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/02/26 18:34:36 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/01 18:46:43 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ int	handle_args(t_node **stack_a, char **args, int count)
 	i = 0;
 	while (i < count)
 	{
-		if (!integer(args[i]))
+		if (integer(args[i]))
 			return (write (2, "Error\n", 6), free (values), 1);
 		tmp = ft_atol(args[i]);
 		if (tmp > INT_MAX || tmp < INT_MIN)
@@ -135,7 +135,7 @@ int	handle_args(t_node **stack_a, char **args, int count)
 		i++;
 	}
 	if (dups(values, count))
-		return (free (values), 1);
+		return (write (2, "Error\n", 6), free (values), 1);
 	values_to_stack(stack_a, values, count);
 	free (values);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/01 08:58:38 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/01 19:10:30 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,20 @@ void  sa_swap(t_node **head)
     
     *head = second;
     return ;
+}
+
+void	sort_three(t_node **stack_a)
+{
+	 t_node *first;
+	 t_node *second;
+	 t_node *third;
+	 t_node *current;
+
+	 if (!stack_a || !*stack_a)
+	 	return ;
+	current = *stack_a;
+	while (current->next != NULL)
+	{
+		if (curretn->next >)
+	}
 }
