@@ -1,10 +1,10 @@
-NAME	=	push_swap.a
+NAME	=	push_swap
 CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -I include
 
 HEADER	=	push_swap.h
 
-SRC		=	main.c commands.c handle_args.c \
+SRC		=	main.c commands.c handle_args.c
 
 OBJS	=	$(SRC:.c=.o)
 
@@ -15,14 +15,13 @@ all:	$(NAME)
 $(NAME): $(OBJS)
 	make -C libft
 	$(CC) $(OBJS) -Llibft -lft -o $(NAME)
-# 	ar rcs $(NAME) $(OBJ)
 
-%.o: %.c %$(HEADER)
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make -C libft clean
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	make -C libft clean

@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 16:38:00 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/03 09:50:18 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/05 15:42:35 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	rb(t_node **stack_b)
 	write (1, "rb\n", 3);
 }
 
-void	rr(t_node **stack_a, t_node *stack_b)
+void	rr(t_node **stack_a, t_node **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);
