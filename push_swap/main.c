@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/02 10:40:00 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/05 05:37:30 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	is_sorted(t_node **stack_a)
 	t_node *current;
 	
 	if (!stack_a || !*stack_a)
-		return (1);
+		return (1); // 1 = true/sorted; 0 = false/not sorted
 	current = *stack_a;
-	while (current->next != NULL)
+	while (current->next)
 	{
 		if (current->data > current->next->data)
 			return (0);
@@ -72,14 +72,15 @@ int	main(int argc, char **argv)
 	if (!args)
 		return (write(2, "Error\n", 6), 1);
 	handle_args(&stack_a, args, count);
-	if (is_sorted(stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
+	if (!is_sorted(stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
 	{
 		if (count == 2)
 			sa(&stack_a); // swap the two nodes
 		else if (count == 3)
-			sort_three(&stack_a);
+			tiny_sort(&stack_a);
+			// sort_three(&stack_a);
 		else if (count <= 5)
-			small_sort(&stack_a);
+			tiny_sort(&stack_a);
 		else
 			chunk_sort(&stack_a, &stack_b, count);
 	}
