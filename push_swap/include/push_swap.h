@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/06 10:39:47 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/06 11:28:32 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-#include "../Libft/libft.h"
+#include "../libft/libft.h"
 
 typedef struct s_node
 {
@@ -65,7 +65,7 @@ void	chunk_sort();
 
 /* utils */
 int		is_sorted(t_node **stack_a);
-char	**split_or_not(int argc, char **argv, int *count);
+char	**split_or_not(int argc, char **argv);
 t_node	*min(t_node *stack);
 
 # endif

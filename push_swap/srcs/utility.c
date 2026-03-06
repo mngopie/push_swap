@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 19:33:18 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/06 10:38:10 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/06 12:06:59 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 // function that finds the smallest value node
 // function that gets the length of the stack, a & b?
+
+void	stack(t_stack **stack)
+{
+	(*stack)->top = NULL;
+	(*stack)->bottom = NULL;
+	(*stack)->size = 0;
+}
 
 t_node	*min(t_node *stack)
 {

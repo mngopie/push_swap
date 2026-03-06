@@ -6,29 +6,23 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:56:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:13 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/06 11:28:45 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**split_or_not(int argc, char **argv, int *count)
+char	**split_or_not(int argc, char **argv)
 {
 	char	**split;
-	int		i;
 
 	if (argc == 2)
 	{
 		split = ft_split(argv[1], ' ');
 		if (!split || !split[0])
 			return (NULL);
-		i = 0;
-		while (split[i])
-			i++;
-		*count = i;
 		return (split);
 	}
-	*count = argc - 1;
 	return (argv + 1);
 }
 

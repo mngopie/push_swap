@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/06 10:45:33 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/06 12:38:11 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_stack	a;
+	t_stack	b;
 	char	**args;
-	int		count;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	stack(&a); /* initialize */
+	stack(&b);
 	if (argc < 2)
-		return (1); // argc[1] is ./a.out - return (1) is error
-	args = split_or_not(argc, argv, &count);
+		return (0);
+	args = split_or_not(argc, argv);
 	if (!args)
-		return (write(2, "Error\n", 6), 1);
-	handle_args(&stack_a, args, count);
+		return (write(1, "Error\n", 6), 1);
+	handle_args(&a, args);
 	assign_index(&stack_a);
 	if (!is_sorted(&stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
 	{
