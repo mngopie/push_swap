@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:10 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/06 10:45:33 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	if (!args)
 		return (write(2, "Error\n", 6), 1);
 	handle_args(&stack_a, args, count);
+	assign_index(&stack_a);
 	if (!is_sorted(&stack_a)) // is this just a check? or diri ko himuon ang manual sorting for 3, 4, 5 arguments?
 	{
 		if (count == 2)
@@ -38,6 +39,6 @@ int	main(int argc, char **argv)
 		else
 			chunk_sort(&stack_a, &stack_b, count);
 	}
-	// 	free (split_or_not);
+	// 	free (stack_a & stack_b);
 	return (0);
 }
