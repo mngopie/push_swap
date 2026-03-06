@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/06 15:14:58 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/06 16:34:51 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	values_to_stack(t_stack *stack, int value)
 	if (!new_node)
 		return ;
 	new_node->data = value;
+	new_node->index = 0;
 	new_node->next = NULL;
 	new_node->prev = stack->bottom;
 	if (!stack->top)
@@ -90,19 +91,14 @@ int	dups(t_stack *a, int arg)
 	current = a->top;
 	while (current)
 	{
-		j = i + 1;
-		while (j < vcount)
-		{
-			if (numbers[i] == numbers[j])
-				return (1);
-			j++;
-		}
-		i++;
+		if (current->data == arg)
+			return (1);
+		current = current->next;
 	}
 	return (0);
 }
 
-int	handle_args(t_stack **a, char **args)
+int	handle_args(t_stack *a, char **args)
 {
 	long tmp;
 	int i;
@@ -120,5 +116,5 @@ int	handle_args(t_stack **a, char **args)
 		values_to_stack(a, (int)tmp);
 		i++;
 	}
-	return (0); // free args
+	return (0); // free args aahh on main()
 }

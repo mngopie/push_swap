@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/06 11:28:32 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/06 16:35:38 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_stack
 } t_stack;
 
 /* parsing */
-int		handle_args(t_node **stack_a, char **args, int count);
+int		handle_args(t_stack *a, char **args);
 long	ft_atol(const char *nptr);
 int		integer(char *str);
 int		dups(long *numbers, int vcount);
