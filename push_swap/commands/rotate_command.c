@@ -6,49 +6,48 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 16:38:00 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:35 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 12:57:58 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_node **stack)
+void	rotate(t_stack *stack)
 {
-	t_node	*first_node;
-	t_node	*last_node;
+	t_node	*first;
+	t_node	*second;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || stack->size < 2)
 		return ;
 	
-		last_node = *stack;
-	first_node = *stack;
-	// i need a index to look point to the last node
-	while (last_node->next)
-		last_node = last_node->next; // last_node moves until the last node
-	*stack = first_node->next;
-	(*stack)->prev = NULL;
+	first = stack->top;
+	second = first->next;
+
+	stack->top = second;
+	second->prev = NULL;
 	
-	last_node->next = first_node;
-	first_node->prev = last_node;
+	stack->bottom->next = first;
+	first->prev = stack->bottom;
 	
-	first_node->next = NULL;
+	first->next = NULL;
+	stack->bottom = first;
 }
 
-void	ra(t_node **stack_a)
+void	ra(t_stack *a)
 {
-	rotate(stack_a);
+	rotate(a);
 	write (1, "ra\n", 3);
 }
 
-void	rb(t_node **stack_b)
+void	rb(t_stack *b)
 {
-	rotate(stack_b);
+	rotate(b);
 	write (1, "rb\n", 3);
 }
 
-void	rr(t_node **stack_a, t_node **stack_b)
+void	rr(t_stack *a, t_stack *b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
+	rotate(a);
+	rotate(b);
 	write(1, "rr\n", 3);
 }

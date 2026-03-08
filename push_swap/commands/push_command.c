@@ -6,62 +6,66 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 14:00:59 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:36 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 12:35:08 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (stack_b == NULL || *stack_b == NULL)
+	if (b == NULL || b->size == 0)
 		return ;
-	
-	node = *stack_b;
-	*stack_b = node->next;
-	
-	if (*stack_b)
-		(*stack_b)->prev = NULL; // at this point the node i want to transfer is detached
-	if (*stack_a == NULL) // if no nodes yet in stack_a
+	node = b->top;
+	b->top = node->next;
+	if (b)
+		b->top->prev = NULL; // at this point the node i want to transfer is detached
+	b->size--;	
+	if (a->top == NULL) // if no nodes yet in stack_a
 	{
-		*stack_a = node;
+		a->top = node;
+		a->bottom = node;
 		node->next = NULL;
+		node->prev = NULL;
 	}
 	else
 	{
+		node->next = a->top;
 		node->prev = NULL;
-		node->next = *stack_a;
-		(*stack_a)->prev = node; // next node's prev is set to node
-		*stack_a = node;
+		a->top->prev = node;
+		a->top = node;
 	}
+	a->size++;
 	write (1, "pa\n", 3);
 }
 
-void	pb(t_node **stack_a, t_node **stack_b)
+void	pb(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (stack_a == NULL || *stack_a == NULL)
+	if (a == NULL || a->size == 0)
 		return ;
-
-	node = *stack_a;
-	*stack_a = node->next;
-
-	if (*stack_a)
-		(*stack_a)->prev = NULL;
-	if (*stack_b == NULL)
+	node = a->top;
+	a->top = node->next;
+	if (a)
+		a->top->prev = NULL;
+	a->size--;
+	if (b == NULL)
 	{
-		*stack_b = node;
+		b->top = node;
+		b->bottom = node;
 		node->next = NULL;
+		node->prev = NULL;
 	}
 	else
 	{
+		node->next = b->top;
 		node->prev = NULL;
-		node->next = *stack_b;
-		(*stack_b)->prev = node;
-		*stack_b = node;
+		b->top->prev = node;
+		b->top = node;
 	}
+	b->size++;
 	write (1, "pb\n", 3);
 }

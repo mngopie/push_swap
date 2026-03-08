@@ -6,32 +6,30 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 09:50:50 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:33 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 13:15:38 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rrotate(t_node **stack)
+void    rrotate(t_stack *stack)
 {
-	t_node	*last_node;
+	t_node	*last;
     t_node	*second_last;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || stack->size < 2)
 		return ;
 	
-	// first_node = *stack;
-	last_node = *stack;
+	last = stack->bottom;
+	second_last = last->prev;
 
-	while (last_node->next)
-		last_node = last_node->next;
-	
-	second_last = last_node->prev;
 	second_last->next = NULL;
-	last_node->prev = NULL;
-	last_node->next = *stack;
-	(*stack)->prev = last_node;
-	*stack = last_node;
+	stack->bottom = second_last;
+
+	last->prev = NULL;
+	last->next = stack->top;
+	stack->top->prev = last;
+	stack->top = last;
 }
 
 void    rra(t_node **stack_a)
