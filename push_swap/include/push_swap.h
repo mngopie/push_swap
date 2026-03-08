@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/08 14:09:11 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 17:41:32 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 
 /* sorting */
-// void	sort_three(t_stack *stack);
-// void	tiny_sort(t_node **stack_a, t_node **stack_b);
-// void	chunk_sort();
+void	sort_three(t_stack *stack);
+void	tiny_sort(t_stack *a, t_stack *b);
+void	algorithm();
 
 /* utils */
 int		is_sorted(t_stack *a);

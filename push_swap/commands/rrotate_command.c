@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 09:50:50 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/08 13:15:38 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 17:41:30 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ void    rrotate(t_stack *stack)
 	stack->top = last;
 }
 
-void    rra(t_node **stack_a)
+void    rra(t_stack *a)
 {
-	rrotate(stack_a);
+	rrotate(a);
 	write (1, "rra\n", 4);
 }
 
-void    rrb(t_node **stack_b)
+void    rrb(t_stack *b)
 {
-	rrotate(stack_b);
+	rrotate(b);
 	write (1, "rrb\n", 4);
 }
 
-void    rrr(t_node **stack_a, t_node **stack_b)
+void    rrr(t_stack *a, t_stack *b)
 {
-    rrotate(stack_a);
-	rrotate(stack_b);
+    rrotate(a);
+	rrotate(b);
 	write (1, "rrr\n", 4);
 }
