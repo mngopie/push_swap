@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/06 16:35:38 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/07 13:17:10 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_stack
 int		handle_args(t_stack *a, char **args);
 long	ft_atol(const char *nptr);
 int		integer(char *str);
-int		dups(long *numbers, int vcount);
+int		dups(t_stack *a, int arg);
 
 /* commands */
 void	sa(t_node **stack_a);
@@ -67,5 +67,6 @@ void	chunk_sort();
 int		is_sorted(t_node **stack_a);
 char	**split_or_not(int argc, char **argv);
 t_node	*min(t_node *stack);
+void	cleanup(char **args, int argc, t_stack **a, t_stack **b);
 
 # endif

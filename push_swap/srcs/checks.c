@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:56:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/06 11:28:45 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:43:58 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,13 @@ char	**split_or_not(int argc, char **argv)
 	return (argv + 1);
 }
 
-void	print_stack(t_node *stack)
-{
-	while (stack)
-	{
-		printf("%d\n", stack->data);
-		stack = stack->next;
-	}
-}
-
-int	is_sorted(t_node **stack_a)
+int	is_sorted(t_stack *a)
 {
 	t_node *current;
-	
-	if (!stack_a || !*stack_a)
+	// sorted - exit; not sorted - sort it
+	if (!a || !a->size < 2)
 		return (1); // 1 = true/sorted; 0 = false/not sorted
-	current = *stack_a;
+	current = a->top;
 	while (current->next)
 	{
 		if (current->data > current->next->data)

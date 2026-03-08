@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:15 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:26:38 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,32 @@
 // 	}
 // 	return (min_index);
 // }
+
+void	sort_three(t_node **stack)
+{
+	int a;
+	int b;
+	int c;
+
+	if (!stack || !*stack)
+	 	return ;
+	a = (*stack)->data;
+	b = (*stack)->next->data;
+	c = (*stack)->next->next->data;
+	if (a < b && b < c)
+		return ; // 1 2 3
+	else if (a > b && b < c && a < c)
+		sa(stack); // 2 1 3
+	else if (a > b && b > c)
+		return (sa(stack), rra(stack)); // 3 2 1
+	else if (a > b && b < c && a > c)
+		ra(stack); // 3 1 2
+	else if (a < b && b > c && a < c)
+		return (rra(stack), sa(stack)); // 1 3 2
+	else if (a < b && b > c && a > c)
+		rra(stack); // 2 3 1
+	return ;
+}
 
 void	tiny_sort(t_node **stack_a, t_node **stack_b)
 {

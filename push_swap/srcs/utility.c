@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 19:33:18 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/06 12:06:59 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:44:40 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,39 @@ void	stack(t_stack **stack)
 	(*stack)->top = NULL;
 	(*stack)->bottom = NULL;
 	(*stack)->size = 0;
+}
+
+void	free_split(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*tmp;
+
+	while (stack->top)
+	{
+		tmp = stack->top;
+		stack->top = stack->top->next;
+		free(tmp);
+	}
+}
+
+void	cleanup(char **args, int argc, t_stack **a, t_stack **b)
+{
+	if (argc == 2)
+		free_split(args);
+	free_stack(a);
+	free_stack(b);
 }
 
 t_node	*min(t_node *stack)

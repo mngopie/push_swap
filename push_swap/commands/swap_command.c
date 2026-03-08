@@ -6,21 +6,21 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:22:16 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/05 15:42:31 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:51:08 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_node **stack)
+void    swap(t_stack *stack)
 {
     t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || stack->size < 2)
 		return ;
-	first = *stack;
+	first = stack->top;
 	second = first->next;
 	third = second->next;
 
@@ -31,28 +31,26 @@ void    swap(t_node **stack)
 
 	if (third)
 		third->prev = first;
-
-	*stack = second;
+	else
+		stack->bottom = first;
+	stack->top = second;
 }
 
-void	sa(t_node **stack_a)
+void	sa(t_stack *a)
 {
-	swap(stack_a);
+	swap(a);
 	write (1, "sa\n", 3);
-    return ;
 }
 
-void	sb(t_node **stack_b)
+void	sb(t_stack *b)
 {
-	swap(stack_b);
+	swap(b);
 	write (1, "sb\n", 3);
-	return ;
 }
 
-void	ss(t_node **stack_a, t_node **stack_b)
+void	ss(t_stack *a, t_stack *b)
 {
-    swap(stack_a);
-    swap(stack_b);
+    swap(a);
+    swap(b);
     write(1, "ss\n", 3);
-	return ;
 }
