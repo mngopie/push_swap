@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/07 13:17:10 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 14:09:11 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,30 +43,34 @@ int		integer(char *str);
 int		dups(t_stack *a, int arg);
 
 /* commands */
-void	sa(t_node **stack_a);
-void	sb(t_node **stack_b);
-void	ss(t_node **stack_a, t_node **stack_b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
 
-void	ra(t_node **stack_a);
-void	rb(t_node **stack_b);
-void	rr(t_node **stack_a, t_node **stack_b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
 
-void	rra(t_node **stack_a);
-void	rrb(t_node **stack_b);
-void	rrr(t_node **stack_a, t_node **stack_b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
-void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_a, t_node **stack_b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
 
 /* sorting */
-void	sort_three(t_node **stack);
-void	tiny_sort(t_node **stack_a, t_node **stack_b);
-void	chunk_sort();
+// void	sort_three(t_stack *stack);
+// void	tiny_sort(t_node **stack_a, t_node **stack_b);
+// void	chunk_sort();
 
 /* utils */
-int		is_sorted(t_node **stack_a);
+int		is_sorted(t_stack *a);
 char	**split_or_not(int argc, char **argv);
 t_node	*min(t_node *stack);
-void	cleanup(char **args, int argc, t_stack **a, t_stack **b);
+void	cleanup(char **args, int argc, t_stack *a, t_stack *b);
+void	assign_index(t_stack *a);
+void	free_stack(t_stack *stack);
+void	free_split(char **args);
+void	stack(t_stack **stack);
 
 # endif

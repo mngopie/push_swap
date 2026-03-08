@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 19:33:18 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/07 20:44:40 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/08 13:58:53 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-void	cleanup(char **args, int argc, t_stack **a, t_stack **b)
+void	cleanup(char **args, int argc, t_stack *a, t_stack *b)
 {
 	if (argc == 2)
 		free_split(args);
