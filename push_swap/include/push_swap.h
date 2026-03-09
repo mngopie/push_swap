@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/09 11:10:50 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:34:41 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 
 /* sorting */
+void	sort_control(t_stack *a, t_stack *b);
 void	sort_three(t_stack *stack);
 void	tiny_sort(t_stack *a, t_stack *b);
-// void	algorithm();
+void	algorithm(t_stack *a, t_stack *b);
 
 /* utils */
 int		is_sorted(t_stack *a);
@@ -71,6 +72,10 @@ void	cleanup(char **args, int argc, t_stack *a, t_stack *b);
 void	assign_index(t_stack *a);
 void	free_stack(t_stack *stack);
 void	free_split(char **args);
-void	stack(t_stack **stack);
+void	stack(t_stack *stack);
+void	push_back(t_stack *a, t_stack *b);
+void	biggest_pushed(t_stack *a, t_stack *b);
+int		index_position(t_stack *b, int max);
+int		max_index(t_stack *b);
 
 # endif

@@ -6,11 +6,25 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:11:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 12:51:59 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:39:34 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void print_stack(t_stack *stack, char name)
+{
+    t_node *curr;
+
+    printf("Stack %c (size %d):\n", name, stack->size);
+    curr = stack->top;
+    while (curr)
+    {
+        printf("Data: %d | Index: %d\n", curr->data, curr->index);
+        curr = curr->next;
+    }
+    printf("\n");
+}
 
 int	main(int argc, char **argv)
 {
@@ -30,6 +44,8 @@ int	main(int argc, char **argv)
 	assign_index(&a);
 	if (!is_sorted(&a)) 
 		sort_control(&a, &b);
+	print_stack(&a, 'A');
+	print_stack(&b, 'B');
 	cleanup(args, argc, &a, &b);
 	return (0);
 }
@@ -37,19 +53,7 @@ int	main(int argc, char **argv)
 // #include <stdio.h>
 // #include "push_swap.h"
 
-// void print_stack(t_stack *stack, char name)
-// {
-//     t_node *curr;
 
-//     printf("Stack %c (size %d):\n", name, stack->size);
-//     curr = stack->top;
-//     while (curr)
-//     {
-//         printf("Data: %d | Index: %d\n", curr->data, curr->index);
-//         curr = curr->next;
-//     }
-//     printf("\n");
-// }
 
 // int main(int argc, char **argv)
 // {
