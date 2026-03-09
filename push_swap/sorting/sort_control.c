@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:43:37 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 11:10:35 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 12:59:40 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void	sort_control(t_stack *a, t_stack *b)
 		sort_three(a);
 	else if (count == 4 || count == 5)
 		tiny_sort(a, b);
-	// else
-	// 	algorithm(a, b);
+	else
+		algorithm(a, b);
 }
