@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:56:52 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/08 13:58:09 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:46:04 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ char	**split_or_not(int argc, char **argv)
 
 int	is_sorted(t_stack *a)
 {
-	t_node *current;
-	// sorted - exit; not sorted - sort it
+	t_node	*current;
+
 	if (!a || a->size < 2)
-		return (1); // 1 = true/sorted; 0 = false/not sorted
+		return (1);
 	current = a->top;
 	while (current->next)
 	{
@@ -39,5 +39,5 @@ int	is_sorted(t_stack *a)
 			return (0);
 		current = current->next;
 	}
-	return(1);
+	return (1);
 }

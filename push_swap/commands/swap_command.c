@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   swap_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:22:16 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/07 20:51:08 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:56:33 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
-    t_node	*first;
+	t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
@@ -23,12 +23,10 @@ void    swap(t_stack *stack)
 	first = stack->top;
 	second = first->next;
 	third = second->next;
-
 	second->next = first;
 	second->prev = NULL;
 	first->next = third;
 	first->prev = second;
-
 	if (third)
 		third->prev = first;
 	else
@@ -50,7 +48,7 @@ void	sb(t_stack *b)
 
 void	ss(t_stack *a, t_stack *b)
 {
-    swap(a);
-    swap(b);
-    write(1, "ss\n", 3);
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
 }

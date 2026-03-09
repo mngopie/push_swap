@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:07:09 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/07 12:51:19 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:54:30 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// atoi or atol; long to handle int_min and int_max range
-// linked list: create & add new nodes
-// function to take the argv, have the checks: integers? duplicates? range? push into nodes
-
 long	ft_atol(const char *nptr)
 {
-	long num;
-	long sign;
-	int i;
+	long	num;
+	long	sign;
+	int		i;
 
 	num = 0;
 	sign = 1;
@@ -61,12 +57,12 @@ void	values_to_stack(t_stack *stack, int value)
 	else
 		stack->bottom->next = new_node;
 	stack->bottom = new_node;
-	stack->size++; // should i increase size here to count each nodes?
+	stack->size++;
 }
 
 int	integer(char *arg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arg == NULL)
@@ -100,8 +96,8 @@ int	dups(t_stack *a, int arg)
 
 int	handle_args(t_stack *a, char **args)
 {
-	long tmp;
-	int i;
+	long	tmp;
+	int		i;
 
 	i = 0;
 	while (args[i])
@@ -116,5 +112,5 @@ int	handle_args(t_stack *a, char **args)
 		values_to_stack(a, (int)tmp);
 		i++;
 	}
-	return (0); // free args aahh on main()
+	return (0);
 }

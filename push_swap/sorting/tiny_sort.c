@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/09 12:47:37 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:48:42 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,33 @@
 
 void	sort_three(t_stack *stack)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
 	a = stack->top->index;
 	b = stack->top->next->index;
 	c = stack->top->next->next->index;
-
 	if (a < b && b < c)
-		return ; // 1 2 3
+		return ;
 	else if (a > b && b < c && a < c)
-		sa(stack); // 2 1 3
+		sa(stack);
 	else if (a > b && b > c)
-		return (sa(stack), rra(stack)); // 3 2 1
+		return (sa(stack), rra(stack));
 	else if (a > b && b < c && a > c)
-		ra(stack); // 3 1 2
+		ra(stack);
 	else if (a < b && b > c && a < c)
-		return (rra(stack), sa(stack)); // 1 3 2
+		return (rra(stack), sa(stack));
 	else if (a < b && b > c && a > c)
-		rra(stack); // 2 3 1
+		rra(stack);
 	return ;
 }
 
 void	tiny_sort(t_stack *a, t_stack *b)
 {
-	int nodes_pushed = 0;
+	int	nodes_pushed;
+
+	nodes_pushed = 0;
 	while (a->size > 3)
 	{
 		if (a->top->index == 0 || a->top->index == 1)
@@ -51,7 +52,7 @@ void	tiny_sort(t_stack *a, t_stack *b)
 			ra(a);
 	}
 	sort_three(a);
-	while(nodes_pushed--)
+	while (nodes_pushed--)
 		pa(a, b);
 	if (a->top->index > a->top->next->index)
 		sa(a);

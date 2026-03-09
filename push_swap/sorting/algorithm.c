@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 17:37:10 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 15:46:30 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:51:03 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	biggest_pushed(t_stack *a, t_stack *b)
 
 	max = max_index(b);
 	position = index_position(b, max);
-
 	if (position <= b->size / 2)
 	{
 		while (b->top->index != max)
@@ -39,16 +38,16 @@ void	push_back(t_stack *a, t_stack *b)
 		biggest_pushed(a, b);
 }
 
-void    algorithm(t_stack *a, t_stack *b)
+void	algorithm(t_stack *a, t_stack *b)
 {
-	int	chunk_size; // allowed numbers inside the chunk
-	int	limit; // highest index allowed in the chunk; 0-19
-	int	pushed; // numbers pushed to stack b
+	int	chunk_size;
+	int	limit;
+	int	pushed;
 
 	chunk_size = 20;
 	limit = chunk_size;
 	pushed = 0;
-    while (a->size > 0) // pushing everything to stack b
+	while (a->size > 0)
 	{
 		if (a->top->index < limit)
 		{
@@ -60,9 +59,5 @@ void    algorithm(t_stack *a, t_stack *b)
 		if (pushed == limit)
 			limit += chunk_size;
 	}
-	//nodes back to a
+	push_back(a, b);
 }
-
-
-// empty out a
-//

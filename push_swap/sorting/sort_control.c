@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 14:43:37 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 16:34:43 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:49:00 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	assign_index(t_stack *a)
 {
 	t_node	*current;
 	t_node	*compare;
-	int	index;
+	int		index;
 
 	current = a->top;
-	while(current)
+	while (current)
 	{
 		index = 0;
 		compare = a->top;

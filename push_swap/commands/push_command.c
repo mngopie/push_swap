@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_command.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 14:00:59 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 12:46:47 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:58:35 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	pa(t_stack *a, t_stack *b)
 	node = b->top;
 	b->top = node->next;
 	if (b->top)
-		b->top->prev = NULL; // at this point the node i want to transfer is detached
+		b->top->prev = NULL;
 	else
 		b->bottom = NULL;
-	b->size--;	
-	if (a->top == 0) // if no nodes yet in stack_a
+	b->size--;
+	if (a->top == 0)
 	{
 		a->top = node;
 		a->bottom = node;
@@ -40,7 +40,7 @@ void	pa(t_stack *a, t_stack *b)
 		a->top = node;
 	}
 	a->size++;
-	write (1, "pa\n", 3);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b)
@@ -71,5 +71,5 @@ void	pb(t_stack *a, t_stack *b)
 		b->top = node;
 	}
 	b->size++;
-	write (1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
