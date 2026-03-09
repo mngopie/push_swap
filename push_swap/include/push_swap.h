@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/08 17:57:32 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 11:10:50 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_node
 
 typedef struct s_stack
 {
-	struct s_stack	*top;
-	struct s_stack	*bottom;
+	struct s_node	*top;
+	struct s_node	*bottom;
 	int				size;
 } t_stack;
 
@@ -61,7 +61,7 @@ void	pb(t_stack *a, t_stack *b);
 /* sorting */
 void	sort_three(t_stack *stack);
 void	tiny_sort(t_stack *a, t_stack *b);
-void	algorithm();
+// void	algorithm();
 
 /* utils */
 int		is_sorted(t_stack *a);

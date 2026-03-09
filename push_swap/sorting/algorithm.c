@@ -6,13 +6,13 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 17:37:10 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/08 17:37:55 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 11:07:48 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    algorithm(t_stack *a, t_stack *b)
-{
-    
-}
+// void    algorithm(t_stack *a, t_stack *b)
+// {
+//     if (a->size > 3 && )
+// }

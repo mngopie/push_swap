@@ -6,7 +6,7 @@
 /*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 14:00:59 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/08 12:35:08 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/09 12:46:47 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ void	pa(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (b == NULL || b->size == 0)
+	if (!b || b->size == 0)
 		return ;
 	node = b->top;
 	b->top = node->next;
-	if (b)
+	if (b->top)
 		b->top->prev = NULL; // at this point the node i want to transfer is detached
+	else
+		b->bottom = NULL;
 	b->size--;	
-	if (a->top == NULL) // if no nodes yet in stack_a
+	if (a->top == 0) // if no nodes yet in stack_a
 	{
 		a->top = node;
 		a->bottom = node;
@@ -45,14 +47,16 @@ void	pb(t_stack *a, t_stack *b)
 {
 	t_node	*node;
 
-	if (a == NULL || a->size == 0)
+	if (!a || a->size == 0)
 		return ;
 	node = a->top;
 	a->top = node->next;
-	if (a)
+	if (a->top)
 		a->top->prev = NULL;
+	else
+		a->bottom = NULL;
 	a->size--;
-	if (b == NULL)
+	if (b->size == 0)
 	{
 		b->top = node;
 		b->bottom = node;
