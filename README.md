@@ -87,11 +87,18 @@ This reduces the number of operations required to sort the stack.
 ## Resources
 The following resources were used to better understand sorting algorithms, linked lists, and the push_swap problem:
 
-- push_swap TUTORIAL!
+- 42 project subject documentation
+
+- Discussions and examples related to push_swap sorting strategies such as Radix sort, small sorting and the such.
+https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+https://github.com/AdrianWR/push_swap
+
+- push_swap TUTORIAL! (YouTube)
 https://www.youtube.com/watch?v=wRvipSG4Mmk
 
 - Link list explanations
-https://fahadsultan.com/csc122/data/linkedlists_doubly.html#:~:text=To%20traverse%20a%20doubly%20linked,same%20as%20singly%20linked%20lists
+https://www.w3schools.com/c/c_structs.php
+https://fahadsultan.com/csc122/data/linkedlists_doubly.html
 https://www.geeksforgeeks.org/dsa/linked-list-data-structure/
 
-- Various algorithm discussions and examples related to push_swap strategies
+- AI tools were used for clarifying concepts, better understanding of the flow of linked list and sorting strategies used for the program.
