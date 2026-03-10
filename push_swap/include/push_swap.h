@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/09 21:38:10 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/10 14:21:29 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void				algorithm(t_stack *a, t_stack *b);
 /* utils */
 int					is_sorted(t_stack *a);
 char				**split_or_not(int argc, char **argv);
-t_node				*min(t_node *stack);
 void				cleanup(char **args, int argc, t_stack *a, t_stack *b);
 void				assign_index(t_stack *a);
 void				free_stack(t_stack *stack);
@@ -78,5 +77,9 @@ void				biggest_pushed(t_stack *a, t_stack *b);
 int					index_position(t_stack *b, int max);
 int					max_index(t_stack *b);
 void				push_helper(t_stack *stack, t_node *node);
+int					ft_word_len(const char *s, char delimiter);
+int					ft_wordcount(const char *s, char delimiter);
+char				*ft_create_strs(const char *s, int word_length, int index);
+char				**ft_split(char const *s, char c);
 
 #endif

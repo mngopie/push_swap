@@ -16,7 +16,8 @@ SRC		=	\
 			sorting/sort_control.c \
 			sorting/tiny_sort.c \
 			srcs/checks.c \
-			srcs/utility.c 
+			srcs/utility.c \
+			srcs/ft_split.c
 
 OBJS	=	$(SRC:.c=.o)
 
