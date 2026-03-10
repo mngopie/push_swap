@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 11:09:31 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/09 16:55:25 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/09 21:38:10 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void				push_back(t_stack *a, t_stack *b);
 void				biggest_pushed(t_stack *a, t_stack *b);
 int					index_position(t_stack *b, int max);
 int					max_index(t_stack *b);
+void				push_helper(t_stack *stack, t_node *node);
 
 #endif

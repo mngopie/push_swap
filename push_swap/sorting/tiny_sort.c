@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 15:48:23 by pjakosal          #+#    #+#             */
-/*   Updated: 2026/03/09 16:48:42 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/09 22:40:02 by pixel            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,3 @@ void	tiny_sort(t_stack *a, t_stack *b)
 	if (a->top->index > a->top->next->index)
 		sa(a);
 }
-
-// void	sort_three(t_stack *stack)
-// {
-// 	int a;
-// 	int b;
-// 	int c;
-
-// 	a = stack->top->index;
-// 	b = stack->top->next->index;
-// 	c = stack->top->next->next->index;
-
-// 	if (a < b && b < c)
-// 		return ;
-// 	if (a == 2)
-// 		ra(stack);
-// 	else if (b == 2)
-// 		rra(stack);
-// 	if (a > b)
-// 		sa(stack);
-// }
