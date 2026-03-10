@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utility.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pixel <pixel@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 19:33:18 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/09 16:32:20 by pixel            ###   ########.fr       */
+/*   Updated: 2026/03/10 11:05:18 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// function that finds the smallest value node
-// function that gets the length of the stack, a & b?
 
 void	stack(t_stack *stack)
 {
