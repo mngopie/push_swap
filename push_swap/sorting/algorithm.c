@@ -6,7 +6,7 @@
 /*   By: pjakosal <pjakosal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 17:37:10 by pixel             #+#    #+#             */
-/*   Updated: 2026/03/10 14:20:48 by pjakosal         ###   ########.fr       */
+/*   Updated: 2026/03/10 18:01:57 by pjakosal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	algorithm(t_stack *a, t_stack *b)
 		if (a->top->index < limit)
 		{
 			pb(a, b);
+			if (b->top->index < limit - (chunk_size / 2))
+				rb(b);
 			pushed++;
 		}
 		else
